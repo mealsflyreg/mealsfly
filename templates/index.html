@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mealsfly - Your favorite meals delivered fast and fresh. Order from thousands of restaurants with lightning-fast delivery and exclusive deals.">
+    <meta name="keywords" content="food delivery, restaurant delivery, online ordering, fast food delivery, meal delivery app">
+    <meta name="author" content="Mealsfly">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Mealsfly - Your Cravings, Delivered Fast & Fresh">
+    <meta property="og:description" content="Order from thousands of restaurants, track your delivery live, and enjoy delicious food delivered to your door.">
+    <meta property="og:image" content="{{ url_for('static', filename='images/logo.svg') }}">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mealsfly">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mealsfly - Your Cravings, Delivered Fast & Fresh">
+    <meta name="twitter:description" content="Order from thousands of restaurants, track your delivery live, and enjoy delicious food delivered to your door.">
+    <meta name="twitter:image" content="{{ url_for('static', filename='images/logo.svg') }}">
+    
+    <title>Mealsfly - Your Cravings, Delivered Fast & Fresh</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='images/logo.svg') }}">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "Mealsfly",
+        "description": "Food delivery app for ordering from thousands of restaurants",
+        "applicationCategory": "Food & Drink",
+        "operatingSystem": "Android, iOS",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="{{ url_for('static', filename='images/mealsfly-logo.png') }}" alt="Mealsfly Logo" width="250" height="83">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/become-partner">Become a Partner</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/become-rider">Become a Rider</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white px-3 ms-2" href="#download">Download Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="row align-items-center min-vh-100 py-5">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <h1 class="hero-title mb-4">Your Cravings, Delivered. <span class="text-primary">Fast & Fresh.</span></h1>
+                    <p class="hero-subtitle mb-4">Order from thousands of restaurants, track your delivery live, and enjoy delicious food delivered to your door in minutes.</p>
+                    
+                    <div class="download-buttons mb-4">
+                        <a href="https://apps.apple.com/app/mealsfly" class="btn btn-download me-3 mb-3" target="_blank">
+                            <img src="{{ url_for('static', filename='images/app-store.svg') }}" alt="Download on App Store" width="180" height="60">
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.mealsfly" class="btn btn-download mb-3" target="_blank">
+                            <img src="{{ url_for('static', filename='images/google-play.svg') }}" alt="Get it on Google Play" width="180" height="60">
+                        </a>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="row text-center">
+                            <div class="col-4">
+                                <div class="stat-item">
+                                    <h3 class="text-primary">100+</h3>
+                                    <p class="small">Restaurants</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-item">
+                                    <h3 class="text-success">5K+</h3>
+                                    <p class="small">Happy Users</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-item">
+                                    <h3 class="text-primary">4.8★</h3>
+                                    <p class="small">App Rating</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 text-center">
+                    <div class="phone-mockup-container">
+                        <div class="phone-mockup">
+                            <img src="{{ url_for('static', filename='images/mealsfly-app-screen.png') }}" alt="Mealsfly App Home Screen" class="phone-screen">
+                        </div>
+                        <div class="phone-mockup phone-mockup-2">
+                            <img src="{{ url_for('static', filename='images/blurred-app-screen.png') }}" alt="Mealsfly Restaurant Menu" class="phone-screen">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title">Why You'll Love Mealsfly</h2>
+                    <p class="section-subtitle">Discover the features that make food delivery effortless and enjoyable</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-hand-holding-dollar"></i>
+                        </div>
+                        <h4>No Hidden Charges</h4>
+                        <p>Complete transparency in pricing. What you see is what you pay - no surprises at checkout.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <h4>No Packing Charges</h4>
+                        <p>Free packaging on all orders. We believe good food shouldn't come with extra fees.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4>Fastest Delivery</h4>
+                        <p>Lightning-fast delivery in 30 minutes or less with our optimized delivery network.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Lowest Price Guarantee</h4>
+                        <p>We match competitor prices and offer the best deals in town. Your wallet will thank you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works-section py-5">
+        <div class="how-it-works-background"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title text-white">How It Works</h2>
+                    <p class="section-subtitle text-white">Getting your favorite food delivered is easier than ever</p>
+                </div>
+            </div>
+            
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="step-card text-center">
+                                <div class="step-number">1</div>
+                                <div class="step-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <h4>Browse & Select</h4>
+                                <p>Explore restaurants and menus in your area. Filter by cuisine, ratings, or delivery time.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="step-card text-center">
+                                <div class="step-number">2</div>
+                                <div class="step-icon">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <h4>Order & Pay</h4>
+                                <p>Add items to your cart, customize your order, and pay securely with multiple payment options.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="step-card text-center">
+                                <div class="step-number">3</div>
+                                <div class="step-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <h4>Track Live</h4>
+                                <p>Follow your order in real-time from preparation to delivery with our live tracking feature.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="step-card text-center">
+                                <div class="step-number">4</div>
+                                <div class="step-icon">
+                                    <i class="fas fa-smile"></i>
+                                </div>
+                                <h4>Enjoy</h4>
+                                <p>Receive your hot, fresh food at your doorstep and enjoy your delicious meal!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 text-center">
+                    <div class="phone-mockup-inline">
+                        <img src="{{ url_for('static', filename='images/app-screen-3.svg') }}" alt="Order Tracking Interface" class="phone-screen-inline">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title">What Our Users Say</h2>
+                    <p class="section-subtitle">Join thousands of satisfied customers who love Mealsfly</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Never thought ordering food could be this easy! Mealsfly is a lifesaver for busy days. The app is super user-friendly and delivery is always on time."</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h5>Priya S.</h5>
+                                <p>Software Engineer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"The variety of restaurants and cuisines is amazing! I've discovered so many new places through Mealsfly. The delivery tracking feature is fantastic."</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h5>Rahul M.</h5>
+                                <p>Marketing Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Great app with excellent customer service! The exclusive deals and cashback offers make it even better. Highly recommend to everyone!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h5>Anjali K.</h5>
+                                <p>Teacher</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <div class="rating-summary">
+                        <h3>4.8 out of 5 stars</h3>
+                        <div class="rating-stars mb-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>Based on 50,000+ reviews on App Store and Google Play</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="section-subtitle">Have questions? We'd love to hear from you</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="contact-info mb-5">
+                        <div class="row text-center">
+                            <div class="col-md-4">
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <h5>Email</h5>
+                                    <p>support@mealsfly.in</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <h5>Phone</h5>
+                                    <p>+918287242736</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="contact-item">
+                                    <i class="fas fa-clock"></i>
+                                    <h5>Support Hours</h5>
+                                    <p>24/7 Available</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="{{ url_for('static', filename='images/mealsfly-logo.png') }}" alt="Mealsfly Logo" width="150" height="50" class="mb-3">
+                        <p>Your favorite meals delivered fast and fresh. Order from thousands of restaurants with lightning-fast delivery.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#press">Press</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Support</h5>
+                    <ul class="footer-links">
+                        <li><a href="#help">Help Center</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#safety">Safety</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#cookie">Cookie Policy</a></li>
+                        <li><a href="#accessibility">Accessibility</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <p class="footer-copyright">© 2025 Mealsfly. All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <div class="footer-downloads">
+                        <a href="https://apps.apple.com/app/mealsfly" class="footer-download-btn me-3" target="_blank">
+                            <img src="{{ url_for('static', filename='images/app-store.svg') }}" alt="App Store" width="120" height="40">
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.mealsfly" class="footer-download-btn" target="_blank">
+                            <img src="{{ url_for('static', filename='images/google-play.svg') }}" alt="Google Play" width="120" height="40">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
