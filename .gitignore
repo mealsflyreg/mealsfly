@@ -28,6 +28,8 @@ env/
 
 # Environment Variables
 .env
+.env.local
+.env.production
 
 # IDE
 .vscode/
@@ -41,7 +43,16 @@ Thumbs.db
 
 # Logs
 *.log
+logs/
 
 # Temporary files
 *.tmp
 *.temp
+
+# Deployment
+.vercel
+.render
+
+# Database
+*.db
+*.sqlite
